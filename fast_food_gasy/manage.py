@@ -7,7 +7,11 @@ import sys
 def main():
     """Run administrative tasks."""
     #os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'fast_food_gasy.settings')
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'fast_food_gasy.fast_food_gasy.settings')
+    os.environ.setdefault(
+    'DJANGO_SETTINGS_MODULE',
+    'fast_food_gasy.settings'
+    )
+
 
     try:
         from django.core.management import execute_from_command_line
