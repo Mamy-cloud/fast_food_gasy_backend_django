@@ -1,1 +1,2 @@
-web: gunicorn menu.wsgi:application
+release: python manage.py migrate 
+web: gunicorn fast_food_gasy.wsgi:application
