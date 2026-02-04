@@ -1,1 +1,1 @@
-web: fast_food_gasy.wsgi:application
+fast_food_gasy.fast_food_gasy.wsgi
