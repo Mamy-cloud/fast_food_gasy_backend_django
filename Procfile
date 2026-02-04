@@ -1,1 +1,1 @@
-fast_food_gasy.fast_food_gasy.wsgi
+web: gunicorn fast_food_gasy.fast_food_gasy.wsgi
