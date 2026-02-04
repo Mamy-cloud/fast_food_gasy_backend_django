@@ -92,8 +92,11 @@ WSGI_APPLICATION = 'fast_food_gasy.wsgi.application'
  """
 
 DATABASES = {
-    'default': dj_database_url.config(default='postgresql://...')
+    'default': dj_database_url.config(
+        default='sqlite:///db.sqlite3'
+    )
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
