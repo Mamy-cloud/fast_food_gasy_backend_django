@@ -1,1 +1,1 @@
-web: gunicorn fast_food_gasy.wsgi:application
+web: gunicorn menu.wsgi:application
