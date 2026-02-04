@@ -1,0 +1,46 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>liste menu tacos</title>
+</head>
+<body>
+    <h1>Voici les tacos</h1>
+    <ul>
+        {% for taco in tacos %}
+        <li>{{ taco.name }} : {{ taco.price }}€</li>
+        <br> <img src="{{ taco.image.url }}" alt="{{ taco.name }}" width="200">
+        {% endfor %}
+    </ul>
+
+    <h1>Voici les pizzas</h1>
+    <ul>
+        {% for pizza in pizzas %}
+        <li>{{ pizza.name }} : {{ pizza.price }}€</li>
+        <br> <img src="{{ pizza.image.url }}" alt="{{ pizza.name }}" width="200">
+        {% endfor %}
+    </ul>
+
+    <h1>Voici les boissons</h1>
+    <ul>
+        {% for boisson in boissons %}
+        <li>{{ boisson.name }} : {{ boisson.price }}€</li>
+        <br> <img src="{{ boisson.image.url }}" alt="{{ boisson.name }}" width="200">
+        {% endfor %}
+    </ul>
+
+    
+
+    <h1>Voici les contacts</h1>
+    <ul>
+        {% for contact in contacts %}
+        <li>adresse postale : {{ contact.address }}</li>
+        <li>adresse mail : {{ contact.email }}</li>
+        <li>N° tel : {{ contact.mobile }}</li>
+
+        <p>---------------------------------------------------------------------------</p>
+        {% endfor %}
+    </ul>
+</body>
+</html>
