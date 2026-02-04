@@ -7,4 +7,6 @@ psycopg2-binary
 dj-database-url
 python-decouple
 whitenoise>=6.0.0,<7.0.0
+Pillow>=10.0.0
+
 
