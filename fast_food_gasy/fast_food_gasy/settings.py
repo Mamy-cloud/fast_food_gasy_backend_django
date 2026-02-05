@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-alw)9md!habvue6$mgk#7*9tj1wa$jg$51c_a!tb$m(^im3d3r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -98,9 +98,23 @@ WSGI_APPLICATION = 'fast_food_gasy.wsgi.application'
     )
 } """
 
-DATABASES = { 
+""" DATABASES = { 
     'default': dj_database_url.config( default=os.environ.get("DATABASE_URL") 
-) }
+) } """
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'UFjgvSUpwMlaTPEYYJiJIlNxThBePuun',
+        'HOST': 'yamabiko.proxy.rlwy.net',
+        'PORT': '56435',
+    }
+}
+
+
+
 
 
 # Password validation
@@ -171,4 +185,19 @@ SIMPLE_JWT = {
 #-----------------hébergeur-----------------------
 ALLOWED_HOSTS = ['.onrender.com']
  
+ #---------------environnement supabase---------------
+import environ
+import os
+
+# Initialise environ
+""" env = environ.Env()
+environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
+
+# Récupère les clés Supabase
+SUPABASE_URL = env("SUPABASE_URL")
+SUPABASE_KEY = env("SUPABASE_KEY")
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+env = environ.Env() 
+environ.Env.read_env(os.path.join(BASE_DIR, ".env")) """
 

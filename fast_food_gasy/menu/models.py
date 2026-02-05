@@ -74,3 +74,8 @@ class Contact(models.Model):
     mobile = models.CharField(max_length=16)
     email = models.EmailField(max_length=60)
 # Create your models here.
+#---------------------relier supabase et railway-----------------------
+class Photo(models.Model):
+    title = models.CharField(max_length=100)
+    image_url = models.URLField()  # lien vers Supabase
+    uploaded_at = models.DateTimeField(auto_now_add=True)
