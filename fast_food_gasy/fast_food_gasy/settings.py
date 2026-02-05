@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'fast_food_gasy.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-""" DATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'fast_food_gasy_db',
@@ -89,13 +89,13 @@ WSGI_APPLICATION = 'fast_food_gasy.wsgi.application'
         'PORT': '5432',
     }
 }
- """
 
-DATABASES = {
+
+""" DATABASES = {
     'default': dj_database_url.config(
         default='sqlite:///db.sqlite3'
     )
-}
+} """
 
 
 # Password validation
