@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 from datetime import timedelta
 import dj_database_url
+import os
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -91,11 +92,15 @@ WSGI_APPLICATION = 'fast_food_gasy.wsgi.application'
 } """
 
 
-DATABASES = {
+""" DATABASES = {
     'default': dj_database_url.config(
         default='sqlite:///db.sqlite3'
     )
-}
+} """
+
+DATABASES = { 
+    'default': dj_database_url.config( default=os.environ.get("DATABASE_URL") 
+) }
 
 
 # Password validation
@@ -164,5 +169,6 @@ SIMPLE_JWT = {
 }
 
 #-----------------hébergeur-----------------------
-ALLOWED_HOSTS = ['*'] 
+ALLOWED_HOSTS = ['.onrender.com']
+ 
 
