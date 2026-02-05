@@ -14,6 +14,7 @@ from pathlib import Path
 from datetime import timedelta
 import dj_database_url
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -87,14 +88,15 @@ WSGI_APPLICATION = 'fast_food_gasy.wsgi.application'
         'HOST': 'localhost',
         'PORT': '5432',
     }
-}
- """
+} """
+
 
 DATABASES = {
     'default': dj_database_url.config(
         default='sqlite:///db.sqlite3'
     )
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
