@@ -6,7 +6,7 @@ from django.core import serializers
 
 
 
-#--------------------------création vue de django-------------------------
+#--------------------------création vue de index.html-------------------------
 
 from .models import Tacos
 from .models import Pizzas
