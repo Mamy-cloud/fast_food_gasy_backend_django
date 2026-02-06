@@ -12,3 +12,6 @@ supabase==2.27.3
 supabase-auth==2.27.3
 supabase-functions==2.27.3
 boto3==1.42.42
+dj-database-url
+django-storages
+python-dotenv
