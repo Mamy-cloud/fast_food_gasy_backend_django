@@ -12,7 +12,8 @@ class Ingredient_tacos(models.Model):
 
 class Tacos(models.Model):
     name = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='tacos_images/')
+    """ image = models.ImageField(upload_to='tacos_images/') """
+    image_url = models.URLField(blank=True, null=True)
     ingredients_taco = models.ManyToManyField(Ingredient_tacos)
     price = models.FloatField(default=10)
     vegetarienne = models.BooleanField(default=False)
@@ -37,7 +38,8 @@ class Ingredient_pizza(models.Model):
     
 class Pizzas(models.Model): 
     name = models.CharField(max_length=100) 
-    image = models.ImageField(upload_to='pizza_images/') 
+    """ image = models.ImageField(upload_to='pizza_images/') """ 
+    image_url = models.URLField(blank=True, null=True)
     ingredients_pizza = models.ManyToManyField(Ingredient_pizza, related_name="pizzas") 
     price = models.FloatField(default=10) 
     vegetarienne = models.BooleanField(default=False) 
@@ -55,7 +57,8 @@ class Pizzas(models.Model):
 
 class Boissons(models.Model): 
     name = models.CharField(max_length=100) 
-    image = models.ImageField(upload_to='boisson_image/') 
+    """ image = models.ImageField(upload_to='boisson_image/') """ 
+    image_url = models.URLField(blank=True, null=True)
     price = models.FloatField(default=10)     
 
     
@@ -73,4 +76,7 @@ class Contact(models.Model):
     address = models.CharField(max_length=200)
     mobile = models.CharField(max_length=16)
     email = models.EmailField(max_length=60)
+
+#-------------------------model supabase----------------------------
+
 # Create your models here.

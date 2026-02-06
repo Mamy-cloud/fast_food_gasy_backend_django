@@ -10,7 +10,7 @@ from .models import Contact
 
 #-----------------partie tacos-------------------------
 class Tacos_list_admin(admin.ModelAdmin):
-    list_display = ('name', 'image', 'show_ingredients', 'price', 'vegetarienne')
+    list_display = ('name', 'image_url', 'show_ingredients', 'price', 'vegetarienne')
 
     def show_ingredients(self, obj):
         return ", ".join([ing.name for ing in obj.ingredients_taco.all()])
@@ -23,7 +23,7 @@ admin.site.register(Ingredient_tacos)
 
 #-----------------partie pizza-------------------------
 class PizzasAdmin(admin.ModelAdmin): 
-    list_display = ('name', 'image', 'show_ingredients', 'price', 'vegetarienne') 
+    list_display = ('name', 'image_url', 'show_ingredients', 'price', 'vegetarienne') 
     
     def show_ingredients(self, obj): 
         return ", ".join([ing.name for ing in obj.ingredients_pizza.all()]) 
@@ -34,7 +34,7 @@ admin.site.register(Ingredient_pizza)
 
 #-----------------partie boisson---------------------------
 class BoissonAdmin(admin.ModelAdmin): 
-    list_display = ('name', 'image', 'price') 
+    list_display = ('name', 'image_url', 'price') 
     
 admin.site.register(Boissons, BoissonAdmin) 
 

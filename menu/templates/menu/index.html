@@ -9,12 +9,16 @@
     <h1>Voici les tacos</h1>
     <ul>
         {% for taco in tacos %}
-        <li>{{ taco.name }} : {{ taco.price }}€</li>
-        <br> <img src="{{ taco.image.url }}" alt="{{ taco.name }}" width="200">
+        <ul>ingrédient:
+            {% for ingredient in taco.ingredients_taco.all %}
+                    <li>{{ ingredient.name }}</li>
+                {% endfor %}
+        </ul>
+        <br> <img src="{{ taco.image_url }}" alt="{{ taco.name }}" width="200">
         {% endfor %}
     </ul>
 
-    <h1>Voici les pizzas</h1>
+    <!-- <h1>Voici les pizzas</h1>
     <ul>
         {% for pizza in pizzas %}
         <li>{{ pizza.name }} : {{ pizza.price }}€</li>
@@ -40,7 +44,7 @@
         <li>N° tel : {{ contact.mobile }}</li>
 
         <p>---------------------------------------------------------------------------</p>
-        {% endfor %}
+        {% endfor %} -->
     </ul>
 </body>
 </html>

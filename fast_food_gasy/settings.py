@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'fast_food_gasy.urls'
@@ -152,34 +153,33 @@ SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
 
-#-----------------railway db-----------------
+#-----------------neon db-----------------
+from dotenv import load_dotenv
+load_dotenv()
+
+
 import os
 import dj_database_url
-from dotenv import load_dotenv
-
-load_dotenv()
 
 DATABASES = {
     'default': dj_database_url.parse(
-        os.environ["DATABASE_URL"],
+        os.environ.get("DATABASE_URL"),
+        ssl_require=True,
         conn_max_age=600,
-        ssl_require=True
     )
 }
 
+
 #----------------------supabase---------------------------------------
-INSTALLED_APPS += ["storages"]
+import os
+from supabase import create_client
 
-DEFAULT_FILE_STORAGE = "monprojet.storages.SupabaseMediaStorage"
+SUPABASE_URL = os.getenv("SUPABASE_URL")
+SUPABASE_KEY = os.getenv("SUPABASE_KEY")
+SUPABASE_BUCKET = os.getenv("SUPABASE_BUCKET")
 
-AWS_ACCESS_KEY_ID = os.environ["SUPABASE_ACCESS_KEY"]
-AWS_SECRET_ACCESS_KEY = os.environ["SUPABASE_SECRET_KEY"]
+supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
-AWS_STORAGE_BUCKET_NAME = "media"
-AWS_S3_ENDPOINT_URL = "https://dhnkmismrjgrmqnmqfbf.supabase.co/storage/v1/s3"
-AWS_S3_REGION_NAME = "us-east-1"
-
-MEDIA_URL = "https://dhnkmismrjgrmqnmqfbf.supabase.co/storage/v1/object/public/media/"
 
 
 
