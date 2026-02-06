@@ -68,6 +68,11 @@ TEMPLATES = [
             ],
         },
     },
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [BASE_DIR / 'templates'],  # attention ici
+        'APP_DIRS': True,
+    },
 ]
 
 WSGI_APPLICATION = 'fast_food_gasy.wsgi.application'
