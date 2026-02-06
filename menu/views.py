@@ -83,7 +83,7 @@ class BoissonAPI(APIView):
 class ContactAPI(APIView):
 
     def get(self, request):
-        contacts = Boissons.objects.all()
+        contacts = Contact.objects.all()
         serializer = ContactSerializer(contacts, many=True)
         return Response(serializer.data)
 
