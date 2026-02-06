@@ -6,6 +6,9 @@ from django.db import models
 class Ingredient_tacos(models.Model):
     name = models.CharField(max_length=100)
 
+    class Meta:
+        ordering = ['name']  # tri alphabétique A → Z
+
     def __str__(self):
         return self.name
 
@@ -32,6 +35,8 @@ class Tacos(models.Model):
 class Ingredient_pizza(models.Model): 
     name = models.CharField(max_length=100) 
 
+    class Meta:
+        ordering = ['name']
         
     def __str__(self): 
         return self.name 
