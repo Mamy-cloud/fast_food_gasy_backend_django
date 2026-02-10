@@ -75,7 +75,7 @@ TEMPLATES = [
 
 
 WSGI_APPLICATION = 'fast_food_gasy.wsgi.application'
-CORS_ALLOW_ALL_ORIGINS = CORS_ALLOWED_ORIGINS = [
+CORS_ALLOW_ALL_ORIGINS = [
      "http://localhost:5173",
      "https://fastfoodgasyvuetify2.vercel.app/",
  ]
