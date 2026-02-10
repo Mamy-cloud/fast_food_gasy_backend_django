@@ -40,9 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'menu.apps.MenuConfig',
     'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -73,6 +75,10 @@ TEMPLATES = [
 
 
 WSGI_APPLICATION = 'fast_food_gasy.wsgi.application'
+CORS_ALLOW_ALL_ORIGINS = CORS_ALLOWED_ORIGINS = [
+     "http://localhost:5173",
+     "https://fastfoodgasyvuetify2.vercel.app/",
+ ]
 
 
 # Database
