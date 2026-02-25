@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'menu.apps.MenuConfig',
     'rest_framework',
     'corsheaders',
+    'core',
 ]
 
 MIDDLEWARE = [
@@ -76,6 +77,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'fast_food_gasy.wsgi.application'
 CORS_ALLOW_ALL_ORIGINS = True
+
+# Pour interdire toutes sauf celles listées (prod)
+""" CORS_ALLOW_ALL_ORIGINS = False
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "https://fastfoodgasyvue3frontend.vercel.app",
+] """
 
 
 # Database
