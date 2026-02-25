@@ -27,6 +27,7 @@ SECRET_KEY = 'django-insecure-alw)9md!habvue6$mgk#7*9tj1wa$jg$51c_a!tb$m(^im3d3r
 DEBUG = False
 
 ALLOWED_HOSTS = ['fast-food-gasy-backend-django-10.onrender.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition

@@ -139,3 +139,35 @@ def upload_tacos(request):
 
 
 # Create your views here.
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import jwt  # pip install pyjwt
+
+SECRET_KEY = "ma_clef_secrète"
+
+@csrf_exempt
+def ma_vue(request):
+    # Récupère le JWT depuis le header Authorization
+    auth_header = request.headers.get("Authorization")
+    if not auth_header:
+        return JsonResponse({"status": "unauthorized", "message": "Header manquant"}, status=401)
+
+    # Vérifie le format : "Bearer <token>"
+    parts = auth_header.split()
+    if len(parts) != 2 or parts[0] != "Bearer":
+        return JsonResponse({"status": "unauthorized", "message": "Format invalide"}, status=401)
+
+    token = parts[1]
+    print("JWT reçu :", token)
+
+    # Décoder et vérifier le token
+    try:
+        payload = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
+        print("Payload décodé :", payload)
+    except jwt.ExpiredSignatureError:
+        return JsonResponse({"status": "unauthorized", "message": "Token expiré"}, status=401)
+    except jwt.InvalidTokenError:
+        return JsonResponse({"status": "unauthorized", "message": "Token invalide"}, status=401)
+
+    # Traitement après validation
+    return JsonResponse({"status": "ok", "user": payload})

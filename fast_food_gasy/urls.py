@@ -29,6 +29,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from core.views import cron_trigger
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
@@ -40,6 +41,7 @@ urlpatterns = [
     path('menu/', include('menu.urls')),  # app menu
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('cron-trigger/', cron_trigger, name='cron_trigger'),
 ]
 
 #---------------configuration de l'url des images---------------#
