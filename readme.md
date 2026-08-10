@@ -22,56 +22,6 @@ Le projet utilise PostgreSQL pour la base de données, Docker pour la conteneuri
 
 ---
 
-## Architecture du projet
-
-```text
-fast_food_gasy_backend_django/
-│
-├── .github/
-│   └── workflows/
-│       ├── ci.yml
-│       └── cd.yml
-│
-├── fast_food_gasy/
-│   ├── __init__.py
-│   ├── settings.py
-│   ├── urls.py
-│   ├── asgi.py
-│   └── wsgi.py
-│
-├── menu/
-│   ├── migrations/
-│   ├── templates/
-│   │   └── menu/
-│   │       └── index.html
-│   │
-│   ├── admin.py
-│   ├── apps.py
-│   ├── models.py
-│   ├── serializers.py
-│   ├── urls.py
-│   └── views.py
-│
-├── tests/
-│   ├── test_admin.py
-│   ├── test_apps.py
-│   ├── test_asgi.py
-│   ├── test_models.py
-│   ├── test_serializers.py
-│   ├── test_urls.py
-│   ├── test_views.py
-│   └── test_wsgi.py
-│
-├── Dockerfile
-├── docker-compose.yml
-├── .dockerignore
-├── manage.py
-├── requirements.txt
-└── README.md
-```
-
----
-
 # Fonctionnement de l'application
 
 L'application Django contient une application `menu` permettant de gérer :
