@@ -1,0 +1,35 @@
+
+FROM python:3.12-slim
+
+# Empêche Python de créer des fichiers .pyc
+ENV PYTHONDONTWRITEBYTECODE=1
+
+# Affiche immédiatement les logs Python
+ENV PYTHONUNBUFFERED=1
+
+WORKDIR /app
+
+# Dépendances système nécessaires
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        libpq-dev \
+        gcc \
+    && rm -rf /var/lib/apt/lists/*
+
+# Installation des dépendances Python
+COPY requirements.txt .
+
+RUN pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir -r requirements.txt \
+    && pip install --no-cache-dir gunicorn
+
+# Copie du projet
+COPY . .
+
+# Collecte des fichiers statiques
+RUN python manage.py collectstatic --noinput || true
+
+EXPOSE 8000
+
+# Démarrage en production
+CMD ["gunicorn", "fast_food_gasy.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "3"]
